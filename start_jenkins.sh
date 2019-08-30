@@ -10,4 +10,4 @@ docker run \
   -v /opt/jenkins-data:/var/jenkins_home \
   -v /var/run/docker.sock:/var/run/docker.sock \
   --name jenkins \
-  ottar63/rpi-jekins-docker
+  ottar63/rpi-jenkins-docker
