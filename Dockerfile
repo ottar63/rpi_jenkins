@@ -79,6 +79,11 @@ RUN apt-get update  -qq \
     && apt-get install docker-ce -y
 RUN usermod -aG docker jenkins
 
+#  Having issue with pushing overlay2 images , get device or resource busy
+#  workaround is to configure docker to only push 1 overlay at a time
+#  ref : https://github.com/docker/for-linux/issues/711
+COPY daemon.json /etc/docker/daemon.json
+
 # for main web interface:
 EXPOSE ${http_port}
 
