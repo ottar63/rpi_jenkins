@@ -1,4 +1,5 @@
-FROM openjdk:8-jdk-stretch
+#FROM openjdk:8-jdk-stretch
+FROM arm32v7/openjdk:8
 
 RUN apt-get update \
        && apt-get upgrade -y \
