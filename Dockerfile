@@ -8,6 +8,8 @@ RUN apt-get update \
        gnupg2 \
        software-properties-common \
        && rm -rf /var/lib/apt/lists/*
+# set correct TimeZone
+RUN rm -rf /etc/localtime && ln -s /usr/share/zoneinfo/Europe/Oslo /etc/localtime
 
 ARG user=jenkins
 ARG group=jenkins
