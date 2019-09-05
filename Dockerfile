@@ -48,7 +48,9 @@ RUN curl -fsSL https://github.com/krallin/tini/releases/download/${TINI_VERSION}
 	&& curl -fsSL https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini-static-armhf.asc -o /sbin/tini.asc \
 	&& gpg --no-tty --import ${JENKINS_HOME}/tini_pub.gpg \
 	&& gpg --verify /sbin/tini.asc \
-	&& chmod +x /sbin/tini 
+	&& chmod +x /sbin/tini \ 
+	&& rm /etc/localtime \
+	&& ln -s /usr/share/zoneinfo/Europe/Oslo /etc/localtime
 
 
 # jenkins version being bundled in this docker image
